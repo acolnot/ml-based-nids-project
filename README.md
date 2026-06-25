@@ -31,3 +31,22 @@ Run the preprocessing pipeline to clean the data.
 uv run src/clean_data.py
 ```
 
+## Train the PyTorch MLP
+
+The training pipeline:
+
+- creates stratified 70/15/15 train, validation, and test splits;
+- fits standardization using only the training split;
+- trains a `256 -> 128 -> 64` MLP with batch normalization, ReLU, and dropout;
+- uses validation-loss early stopping; and
+- reports accuracy, precision, recall, and F1.
+
+```bash
+uv run python -m src.train
+```
+
+For a short end-to-end smoke test:
+
+```bash
+uv run python -m src.train --max-rows 20000 --epochs 2 --output-dir artifacts/smoke
+```

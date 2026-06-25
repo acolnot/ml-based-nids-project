@@ -1,6 +1,10 @@
 .DS_Store
+.idea/
+.vscode/
 .venv/
+.uv-cache/
 __pycache__/
+*.py[cod]
 
-data/
-*.csv
+data/*.csv
+artifacts/
